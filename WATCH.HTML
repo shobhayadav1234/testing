@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple watch</title>
+</head>
+<style>
+    .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        font-size:60px;
+
+    }
+#out{
+        font-size: 90px;
+        color: white;
+        font-weight: 800;
+        letter-spacing: 10px;
+        text-shadow: 0 0 5px white;
+    }
+
+    body{
+        background-color: black;
+    }
+    
+</style>
+<body>
+    <div class="center">
+    <div id="out">
+    </div>
+    </div>
+</body>
+<script>
+    sec = 0
+    min = 0
+    hours = 0
+
+    function show() {
+
+        let time=  "hrs:"+hours+"   min:"+ min+"   sec:"+ sec
+        document.getElementById("out").innerHTML=time
+  
+    }
+
+    setInterval(function(){
+            sec++
+
+            if(sec==60){
+                sec=0
+                min++
+            }
+            if(min==60){
+                min=0
+                hours++
+            }
+            if(hours==60){
+                hours=0
+            }
+
+
+        show()
+
+            
+        } ,100)
+
+
+
+
+
+</script>
+
+</html>

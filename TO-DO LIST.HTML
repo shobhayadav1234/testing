@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+
+ body{
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #4b79a1, #34526d);
+    }
+
+    #container{
+        width: 350px;
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 25px rgba(0,0,0,0.3);
+        text-align: center;
+    }
+
+    h2{
+        margin-bottom: 20px;
+        color: #333;
+        letter-spacing: 2px;
+    }
+
+    #taskinput{
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border: 2px solid #aaa;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+        box-sizing: border-box;
+    }
+
+    #taskinput:focus{
+        border-color: #4b79a1;
+        box-shadow: 0 0 8px rgba(75,121,161,0.5);
+    }
+
+    button{
+        width: 100%;
+        margin-top: 10px;
+        padding: 12px;
+        background: #4b79a1;
+        color: white;
+        font-size: 17px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover{
+        background: #35516a;
+    }
+
+    ul{
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    li{
+        background: #f3f3f3;
+        padding: 12px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    li button{
+        background: red;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    li button:hover{
+        background: rgb(239, 17, 17);
+    }
+
+</style>
+
+<body>
+    
+
+    <div id="container">
+        <h2>TO DO list</h2>
+        <input type="text" id="taskinput" placeholder="Enter a task">
+        <button onclick="addtask()">Add</button>
+        <ul id="tasklist"></ul>
+
+    </div>
+
+</body>
+<script>
+    function addtask() {
+        let input = document.getElementById("taskinput")
+        let task = input.value.trim();
+        if (task == "") {
+            alert("please enter the task");
+            
+        }
+        let li = document.createElement("li");
+        li.textContent = task;
+    
+
+
+        let dlbtn = document.createElement("button")
+        dlbtn.textContent = "❌"
+        dlbtn.style.marginLeft = "10px"
+
+        dlbtn.onclick= function () {
+            li.remove()
+        }
+
+        li.appendChild(dlbtn)
+        document.getElementById("tasklist").appendChild(li)
+        input.value = ""
+    }
+
+</script>
+
+</html>
